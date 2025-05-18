@@ -11,7 +11,13 @@
 </head>
 
 <body>
+    {{-- Header or Navbar --}}
     @include('layouts.navbar')
+
+    {{-- Hero Section --}}
+    @include('herosection')
+
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     @stack('scripts')
 </body>

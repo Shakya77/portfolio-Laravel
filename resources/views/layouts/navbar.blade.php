@@ -1,9 +1,11 @@
-<header class="z-50 w-full px-4 py-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-24 bg-white transition-all duration-300">
+<header
+    class="z-50 w-full px-4 py-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-24 bg-white transition-all duration-300 relative">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
         <div class="text-xl font-bold cursor-pointer">Bijan Shakya
         </div>
-        <span type="button" class="text-gray-800 focus:outline-none menu-toggle relative z-50 cursor-pointer lg:hidden"
-            data-mobile="false" id="menu-toggle" aria-label="Toggle menu">
+        <button id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu-container"
+            class="text-gray-800 focus:outline-none menu-toggle relative z-50 cursor-pointer lg:hidden"
+            aria-label="Toggle menu">
             <div class="w-6 flex flex-col items-end justify-center gap-1.5">
                 <span class="block h-0.5 rounded-full bg-current transition-all duration-300 ease-out w-6"
                     id="menu-toggle-1"></span>
@@ -12,7 +14,53 @@
                 <span class="block h-0.5 rounded-full bg-current transition-all duration-300 ease-out w-5"
                     id="menu-toggle-3"></span>
             </div>
-        </span>
+        </button>
+
+        <nav class="hidden lg:flex gap-8">
+            <span
+                class="relative group cursor-pointer transition-colors duration-300 text-gray-700 hover:text-blue-500">
+                Home
+                <span
+                    class=" absolute -bottom-1.5 h-0.5 bg-blue-500 transition-all duration-300 w-0 left-1/2 group-hover:left-0 group-hover:w-full"></span>
+            </span>
+            <span
+                class="relative group cursor-pointer transition-colors duration-300 text-gray-700 hover:text-blue-500">
+                About
+                <span
+                    class=" absolute -bottom-1.5 h-0.5 bg-blue-500 transition-all duration-300 w-0 left-1/2 group-hover:left-0 group-hover:w-full"></span>
+            </span>
+            <span
+                class="relative group cursor-pointer transition-colors duration-300 text-gray-700 hover:text-blue-500">
+                Resume
+                <span
+                    class=" absolute -bottom-1.5 h-0.5 bg-blue-500 transition-all duration-300 w-0 left-1/2 group-hover:left-0 group-hover:w-full"></span>
+            </span>
+            <span
+                class="relative group cursor-pointer transition-colors duration-300 text-gray-700 hover:text-blue-500">
+                Services
+                <span
+                    class=" absolute -bottom-1.5 h-0.5 bg-blue-500 transition-all duration-300 w-0 left-1/2 group-hover:left-0 group-hover:w-full"></span>
+            </span>
+            <span
+                class="relative group cursor-pointer transition-colors duration-300 text-gray-700 hover:text-blue-500">
+                Contact
+                <span
+                    class=" absolute -bottom-1.5 h-0.5 bg-blue-500 transition-all duration-300 w-0 left-1/2 group-hover:left-0 group-hover:w-full"></span>
+            </span>
+            <span
+                class="relative group cursor-pointer transition-colors duration-300 text-gray-700 hover:text-blue-500">
+                Projects
+                <span
+                    class=" absolute -bottom-1.5 h-0.5 bg-blue-500 transition-all duration-300 w-0 left-1/2 group-hover:left-0 group-hover:w-full"></span>
+            </span>
+            <span
+                class="relative group cursor-pointer transition-colors duration-300 text-gray-700 hover:text-blue-500">
+                My Blog
+                <span
+                    class=" absolute -bottom-1.5 h-0.5 bg-blue-500 transition-all duration-300 w-0 left-1/2 group-hover:left-0 group-hover:w-full"></span>
+            </span>
+        </nav>
+
     </div>
 </header>
 
@@ -48,6 +96,11 @@
                 class=" flex items-center gap-3 p-4 cursor-pointer transition-all duration-200 text-gray-700 hover:bg-gray-50 hover:text-blue-500">
                 <span class="iconify w-5 h-5" data-icon="mdi:email" data-inline="false"></span>
                 Contact
+            </div>
+            <div
+                class=" flex items-center gap-3 p-4 cursor-pointer transition-all duration-200 text-gray-700 hover:bg-gray-50 hover:text-blue-500">
+                <span class="iconify w-5 h-5" data-icon="mdi:post" data-inline="false"></span>
+                Projects
             </div>
             <div
                 class=" flex items-center gap-3 p-4 cursor-pointer transition-all duration-200 text-gray-700 hover:bg-gray-50 hover:text-blue-500">
@@ -89,6 +142,15 @@
                 $('#mobile-menu-container').toggleClass('translate-x-full translate-x-0');
                 $('#mobile-menu-overlay').toggleClass('opacity-0 opacity-100 pointer-events-none');
             }
+
+            $('#mobile-menu-overlay').click(function() {
+                $('#menu-toggle-1').removeClass('-rotate-45 translate-y-2');
+                $('#menu-toggle-2').removeClass('w-0 opacity-0').addClass('w-4');
+                $('#menu-toggle-3').removeClass('w-6 rotate-45 -translate-y-2').addClass('w-5');
+                $('#mobile-menu-container').addClass('translate-x-full').removeClass('translate-x-0');
+                $('#mobile-menu-overlay').addClass('opacity-0 pointer-events-none').removeClass(
+                    'opacity-100');
+            });
         });
     </script>
 @endpush
