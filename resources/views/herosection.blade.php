@@ -1,4 +1,4 @@
-<section class="min-h-[80vh] flex items-center justify-center">
+<section data-section="home" class="min-h-[100vh] flex items-center justify-center">
     <div class="flex flex-col items-center justify-center gap-3">
         <span class="text-2xl font-semibold">Hello there its me </span>
         <span class="text-6xl font-extrabold">Bijan Shakya</span>

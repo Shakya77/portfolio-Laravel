@@ -1,4 +1,4 @@
-<section class="py-20 bg-white">
+<section data-section="resume" class="py-20 bg-white">
     <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center mb-16">My Resume</h2>
 
@@ -6,20 +6,20 @@
             {{-- {/* Sidebar Navigation */} --}}
             <div class="md:w-1/4 mb-8 md:mb-0">
                 <div class="sticky top-24 rounded-lg overflow-hidden shadow-sm">
-                    <button
-                        class="py-3 px-4 text-left w-full transition-colors duration-300 text-blue-500 font-semibold border-l-4 border-blue-500 bg-blue-50">
+                    <button data-target="Education"
+                        class="sidebar-btn py-3 px-4 text-left w-full transition-colors duration-300 text-gray-700 hover:text-blue-500 hover:bg-gray-50">
                         Education
                     </button>
-                    <button
-                        class="py-3 px-4 text-left w-full transition-colors duration-300 text-gray-700 hover:text-blue-500 hover:bg-gray-50">
+                    <button data-target="Experience"
+                        class="sidebar-btn py-3 px-4 text-left w-full transition-colors duration-300 text-gray-700 hover:text-blue-500 hover:bg-gray-50">
                         Experience
                     </button>
-                    <button
-                        class="py-3 px-4 text-left w-full transition-colors duration-300 text-gray-700 hover:text-blue-500 hover:bg-gray-50">
+                    <button data-target="Skills"
+                        class="sidebar-btn py-3 px-4 text-left w-full transition-colors duration-300 text-gray-700 hover:text-blue-500 hover:bg-gray-50">
                         Skills
                     </button>
-                    <button
-                        class="py-3 px-4 text-left w-full transition-colors duration-300 text-gray-700 hover:text-blue-500 hover:bg-gray-50">
+                    <button data-target="Awards"
+                        class="sidebar-btn py-3 px-4 text-left w-full transition-colors duration-300 text-gray-700 hover:text-blue-500 hover:bg-gray-50">
                         Awards
                     </button>
                 </div>
@@ -195,3 +195,60 @@
             </a>
         </div>
 </section>
+
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            let isAnimating = false; // Flag to track if animation is in progress
+
+            // Scroll to section on click
+            $('.sidebar-btn').click(function() {
+                const targetSection = $(this).data('target');
+                const scrollTarget = $('[data-section="' + targetSection + '"]');
+
+                if (scrollTarget.length) {
+                    isAnimating = true;
+
+                    $('html, body').stop().animate({
+                        scrollTop: scrollTarget.offset().top - 100 // adjust offset as needed
+                    }, 500, function() {
+                        // Callback after animation completes
+                        isAnimating = false;
+                        updateActiveButton(targetSection); // ensure correct one is highlighted
+                    });
+
+                    updateActiveButton(targetSection); // immediate visual feedback
+                }
+            });
+
+            // Scroll event to update active button
+            $(window).on('scroll', function() {
+                if (isAnimating) return; // Ignore during animation
+
+                const scrollPos = $(document).scrollTop();
+
+                $('[data-section]').each(function() {
+                    const sectionTop = $(this).offset().top - 120;
+                    const sectionBottom = sectionTop + $(this).outerHeight();
+                    const sectionName = $(this).data('section');
+
+                    if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+                        updateActiveButton(sectionName);
+                        return false;
+                    }
+                });
+            });
+
+            // Utility function to update active button
+            function updateActiveButton(sectionName) {
+                $('.sidebar-btn').removeClass('text-blue-500 font-semibold border-l-4 border-blue-500 bg-blue-50')
+                    .addClass('text-gray-700 hover:text-blue-500 hover:bg-gray-50');
+
+                $('.sidebar-btn[data-target="' + sectionName + '"]')
+                    .removeClass('text-gray-700 hover:text-blue-500 hover:bg-gray-50')
+                    .addClass('text-blue-500 font-semibold border-l-4 border-blue-500 bg-blue-50');
+            }
+        });
+    </script>
+@endpush
