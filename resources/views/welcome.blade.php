@@ -35,7 +35,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
         $(document).ready(function() {
-            let isAnimating = false;
+            let isAnimatingNav = false;
 
             // Click to scroll
             $('.navbar-btn').click(function() {
@@ -43,12 +43,12 @@
                 const scrollTarget = $('[data-section="' + targetSection + '"]');
 
                 if (scrollTarget.length) {
-                    isAnimating = true;
+                    isAnimatingNav = true;
 
                     $('html, body').stop().animate({
                         scrollTop: scrollTarget.offset().top - 100
                     }, 500, function() {
-                        isAnimating = false;
+                        isAnimatingNav = false;
                         updateActiveButtonNavbar(targetSection);
                     });
 
@@ -63,7 +63,7 @@
 
             // Scroll spy
             $(window).on('scroll', function() {
-                if (isAnimating) return;
+                if (isAnimatingNav) return;
 
                 const scrollPos = $(document).scrollTop();
 
@@ -97,7 +97,6 @@
             }
 
             // ✅ Highlight on page load
-            $(window).trigger('scroll');
         });
     </script>
     @stack('scripts')

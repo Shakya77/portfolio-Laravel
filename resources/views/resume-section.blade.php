@@ -27,7 +27,7 @@
             <div class="md:w-3/4 md:pl-12">
 
                 {{-- * Education Section * --}}
-                <div data-section="Education" class="mb-16">
+                <div data-resume-section="Education" class="mb-16">
                     <h2 class="text-3xl font-bold mb-10">Education</h2>
                     <div class="mb-12 relative">
                         <div class="flex items-start">
@@ -69,7 +69,7 @@
                 </div>
 
                 {{-- * Experience Section * --}}
-                <div data-section="Experience" class="mb-16">
+                <div data-resume-section="Experience" class="mb-16">
                     <h2 class="text-3xl font-bold mb-10">Experience</h2>
                     <div class="mb-12 relative">
                         <div class="flex items-start">
@@ -104,7 +104,7 @@
                 </div>
 
                 {{-- * Skills Section * --}}
-                <div data-section="Skills" class="mb-16">
+                <div data-resume-section="Skills" class="mb-16">
                     <h2 class="text-3xl font-bold mb-10">Skills</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10">
                         <div class="mb-6">
@@ -165,12 +165,12 @@
                 </div>
 
                 {{-- * Awards Section * --}}
-                <div data-section="Awards" class="mb-16">
+                <div data-resume-section="Awards" class="mb-16">
                     <h2 class="text-3xl font-bold mb-10">Awards</h2>
-                    <div key={index} class="mb-12 relative">
+                    <div class="mb-12 relative">
                         <div class="flex items-start">
                             <div class="bg-blue-500 rounded-full p-3 mr-6">
-                                <Icon icon="lucide:award" class="text-white text-xl" />
+                                <span class="iconify w-5 h-5 text-white" data-icon="lucide:award"></span>
                             </div>
                             <div class="flex-1">
                                 <div class="text-blue-500 font-medium mb-1">2023</div>
@@ -189,7 +189,7 @@
 
         <div class="text-center mt-16">
             <a href="/img/Bijan.jpg" rel="noopener noreferrer" download
-                class="inline-flex items-center bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors">
+                class="inline-flex gap-2 items-center bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors">
                 <span class="iconify w-5 h-5" data-icon="lucide:download" data-inline="false"></span>
                 Download Full Resume
             </a>
@@ -205,7 +205,7 @@
             // Scroll to section on click
             $('.sidebar-btn').click(function() {
                 const targetSection = $(this).data('target');
-                const scrollTarget = $('[data-section="' + targetSection + '"]');
+                const scrollTarget = $('[data-resume-section="' + targetSection + '"]');
 
                 if (scrollTarget.length) {
                     isAnimating = true;
@@ -224,31 +224,38 @@
 
             // Scroll event to update active button
             $(window).on('scroll', function() {
-                if (isAnimating) return; // Ignore during animation
+                if (isAnimating) return;
 
-                const scrollPos = $(document).scrollTop();
+                const scrollPos = $(window).scrollTop() + ($(window).height() / 3);
 
-                $('[data-section]').each(function() {
-                    const sectionTop = $(this).offset().top - 120;
+                let found = false;
+
+                $('[data-resume-section]').each(function() {
+                    const sectionTop = $(this).offset().top;
                     const sectionBottom = sectionTop + $(this).outerHeight();
-                    const sectionName = $(this).data('section');
 
-                    if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+                    const sectionName = $(this).data('resume-section');
+
+                    if (scrollPos >= sectionTop && scrollPos < sectionBottom && !found) {
                         updateActiveButton(sectionName);
-                        return false;
+                        found = true;
                     }
                 });
             });
+
 
             // Utility function to update active button
             function updateActiveButton(sectionName) {
                 $('.sidebar-btn').removeClass('text-blue-500 font-semibold border-l-4 border-blue-500 bg-blue-50')
                     .addClass('text-gray-700 hover:text-blue-500 hover:bg-gray-50');
 
-                $('.sidebar-btn[data-target="' + sectionName + '"]')
-                    .removeClass('text-gray-700 hover:text-blue-500 hover:bg-gray-50')
+                const $targetBtn = $('.sidebar-btn[data-target="' + sectionName + '"]');
+
+                $targetBtn.removeClass('text-gray-700 hover:text-blue-500 hover:bg-gray-50')
                     .addClass('text-blue-500 font-semibold border-l-4 border-blue-500 bg-blue-50');
             }
+            $(window).trigger('scroll');
+
         });
     </script>
 @endpush
