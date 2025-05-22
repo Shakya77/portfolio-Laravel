@@ -20,6 +20,12 @@
     {{-- About me section --}}
     @include('aboutme')
 
+    {{-- Resume section --}}
+    @include('resume-section')
+
+    {{-- My services section --}}
+    @include('services-section')
+    
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     @stack('scripts')
 </body>

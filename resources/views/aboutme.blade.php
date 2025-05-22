@@ -1,4 +1,4 @@
-<section ref={ref} class=" flex justify-center items-start bg-gradient-to-br from-gray-50 to-gray-100 px-4 py-16">
+<section class=" flex justify-center items-start bg-gradient-to-br from-gray-50 to-gray-100 px-4 py-16">
     <div
         class="flex flex-col lg:flex-row w-full max-w-6xl bg-white rounded-2xl overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl">
         {{-- {/* Left Section - Profile Image with overlay */} --}}
