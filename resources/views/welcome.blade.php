@@ -32,9 +32,19 @@
     {{-- My services section --}}
     @include('services-section')
 
+    {{-- Footer section --}}
+    @include('layouts.footer')
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
         $(document).ready(function() {
+            document.getElementById("backToTopBtn").addEventListener("click", function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth" // Smooth scrolling
+                });
+            });
+
             let isAnimatingNav = false;
 
             // Click to scroll
