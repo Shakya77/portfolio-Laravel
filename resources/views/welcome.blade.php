@@ -32,8 +32,13 @@
     {{-- My services section --}}
     @include('services-section')
 
+    {{-- Contact section --}}
+    @include('contact')
+
     {{-- Footer section --}}
     @include('layouts.footer')
+
+
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
