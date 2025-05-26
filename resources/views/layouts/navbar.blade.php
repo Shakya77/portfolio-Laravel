@@ -76,38 +76,38 @@
     class="fixed top-0 right-0 h-full w-64 bg-white shadow-xl z-40 transform transition-transform duration-300 ease-in-out lg:hidden translate-x-full">
     <div class="pt-20 pb-6 px-2 flex flex-col h-full">
         <div class="flex-1 overflow-y-auto">
-            <div data-target="home"
+            <a data-target="home" href="{{ route('home') }}#home"
                 class="navbar-btn flex items-center gap-3 p-4 cursor-pointer transition-all duration-200 text-gray-700 hover:bg-gray-50 hover:text-blue-500">
                 <span class="iconify w-5 h-5" data-icon="mdi:home" data-inline="false"></span>
                 Home
-            </div>
-            <div data-target="about"
+            </a>
+            <a data-target="about" href="{{ route('home') }}#about"
                 class="navbar-btn flex items-center gap-3 p-4 cursor-pointer transition-all duration-200 text-gray-700 hover:bg-gray-50 hover:text-blue-500">
                 <span class="iconify w-5 h-5" data-icon="mdi:account" data-inline="false"></span>
                 About
-            </div>
-            <div data-target="resume"
+            </a>
+            <a data-target="resume" href="{{ route('home') }}#resume"
                 class="navbar-btn flex items-center gap-3 p-4 cursor-pointer transition-all duration-200 text-gray-700 hover:bg-gray-50 hover:text-blue-500">
                 <span class="iconify w-5 h-5" data-icon="mdi:file-document" data-inline="false"></span>
                 Resume
-            </div>
-            <div data-target="services"
+            </a>
+            <a data-target="services" href="{{ route('home') }}#services"
                 class="navbar-btn flex items-center gap-3 p-4 cursor-pointer transition-all duration-200 text-gray-700 hover:bg-gray-50 hover:text-blue-500">
                 <span class="iconify w-5 h-5" data-icon="mdi:briefcase" data-inline="false"></span>
                 Services
-            </div>
-            <div data-target="contact"
+            </a>
+            <a data-target="contact" href="{{ route('home') }}#contact"
                 class="navbar-btn flex items-center gap-3 p-4 cursor-pointer transition-all duration-200 text-gray-700 hover:bg-gray-50 hover:text-blue-500">
                 <span class="iconify w-5 h-5" data-icon="mdi:email" data-inline="false"></span>
                 Contact
-            </div>
-            <div data-target="projects"
+            </a>
+            <a data-target="projects" href="{{ route('home') }}#projects"
                 class="navbar-btn flex items-center gap-3 p-4 cursor-pointer transition-all duration-200 text-gray-700 hover:bg-gray-50 hover:text-blue-500">
                 <span class="iconify w-5 h-5" data-icon="mdi:post" data-inline="false"></span>
                 Projects
-            </div>
+            </a>
             <a href="{{ route('blog') }}"
-                class="flex items-center gap-3 p-4 cursor-pointer transition-all duration-200 text-gray-700 hover:bg-gray-50 hover:text-blue-500">
+                class="flex items-center gap-3 p-4 cursor-pointer transition-all duration-200  {{ Route::currentRouteName() === 'blog' ? 'text-blue-500 font-semibold border-l-4 border-blue-500 bg-blue-50' : 'text-gray-700 hover:bg-gray-50 hover:text-blue-500' }}">
                 <span class="iconify w-5 h-5" data-icon="mdi:post" data-inline="false"></span>
                 My Blog
             </a>

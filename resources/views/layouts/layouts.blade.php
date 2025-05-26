@@ -85,7 +85,7 @@
 
             function updateActiveButtonNavbar(sectionName) {
                 $('.navbar-btn').removeClass(
-                        'text-blue-500 font-bold border-l-4 border-blue-500 bg-blue-50 active')
+                        'text-blue-500 font-bold border-l-4 border-blue-500 bg-blue-50 active font-semibold')
                     .addClass('text-gray-700 hover:text-blue-500 hover:bg-gray-50');
 
                 $('.navbar-btn[data-target="' + sectionName + '"]').each(function() {
@@ -93,7 +93,7 @@
 
                     if (isMobile) {
                         $(this).addClass(
-                            'text-blue-500 font-semibold border-l-4 border-blue-500 bg-blue-50');
+                            'text-blue-500 font-semibold border-l-4 border-blue-500 bg-blue-50 font-semibold');
                     } else {
                         $(this).addClass('font-bold active');
                     }
