@@ -18,18 +18,18 @@
         </button>
 
         <nav class="hidden lg:flex gap-8">
-            <span data-target="home"
+            <a data-target="home" href="{{ route('home') }}"
                 class="navbar-btn relative group cursor-pointer transition-colors duration-300 text-gray-700 hover:text-blue-500">
                 Home
                 <span
                     class="underline-indicator absolute -bottom-1.5 h-0.5 bg-blue-500 transition-all duration-300 w-0 left-1/2 group-hover:left-0 group-hover:w-full"></span>
-            </span>
-            <span data-target="about"
+            </a>
+            <a data-target="about" href="{{ route('home') }}"
                 class="navbar-btn relative group cursor-pointer transition-colors duration-300 text-gray-700 hover:text-blue-500">
                 About
                 <span
                     class="underline-indicator absolute -bottom-1.5 h-0.5 bg-blue-500 transition-all duration-300 w-0 left-1/2 group-hover:left-0 group-hover:w-full"></span>
-            </span>
+            </a>
             <span data-target="resume"
                 class="navbar-btn relative group cursor-pointer transition-colors duration-300 text-gray-700 hover:text-blue-500">
                 Resume
@@ -54,12 +54,15 @@
                 <span
                     class="underline-indicator absolute -bottom-1.5 h-0.5 bg-blue-500 transition-all duration-300 w-0 left-1/2 group-hover:left-0 group-hover:w-full"></span>
             </span>
-            <span data-target="blog"
-                class="navbar-btn relative group cursor-pointer transition-colors duration-300 text-gray-700 hover:text-blue-500">
+
+            <a href="{{ route('blog') }}"
+                class="relative group cursor-pointer duration-300 text-gray-700 {{ Route::currentRouteName() === 'blog' ? 'text-blue-500 font-bold' : 'hover:text-blue-500 ' }}">
                 My Blog
                 <span
-                    class="underline-indicator absolute -bottom-1.5 h-0.5 bg-blue-500 transition-all duration-300 w-0 left-1/2 group-hover:left-0 group-hover:w-full"></span>
-            </span>
+                    class="absolute -bottom-1.5 h-0.5 bg-blue-500 transition-all duration-300 
+                    {{ Route::currentRouteName() === 'blog' ? 'w-full left-0' : 'w-0 left-1/2 group-hover:left-0 group-hover:w-full' }}">
+                </span>
+            </a>
         </nav>
 
     </div>
@@ -103,11 +106,11 @@
                 <span class="iconify w-5 h-5" data-icon="mdi:post" data-inline="false"></span>
                 Projects
             </div>
-            <div data-target="blog"
-                class="navbar-btn flex items-center gap-3 p-4 cursor-pointer transition-all duration-200 text-gray-700 hover:bg-gray-50 hover:text-blue-500">
+            <a href="{{ route('blog') }}"
+                class="flex items-center gap-3 p-4 cursor-pointer transition-all duration-200 text-gray-700 hover:bg-gray-50 hover:text-blue-500">
                 <span class="iconify w-5 h-5" data-icon="mdi:post" data-inline="false"></span>
                 My Blog
-            </div>
+            </a>
         </div>
 
         <div class="mt-auto pt-4 border-t border-gray-100 px-4">
