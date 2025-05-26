@@ -1,4 +1,4 @@
-<section  data-section="resume" class="py-20 bg-white">
+<section id="resume" data-section="resume" class="py-20 bg-white">
     <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center mb-16">My Resume</h2>
 

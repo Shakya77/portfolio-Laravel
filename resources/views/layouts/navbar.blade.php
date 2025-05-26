@@ -18,42 +18,42 @@
         </button>
 
         <nav class="hidden lg:flex gap-8">
-            <a data-target="home" href="{{ route('home') }}"
+            <a data-target="home" href="{{ route('home') }}#home"
                 class="navbar-btn relative group cursor-pointer transition-colors duration-300 text-gray-700 hover:text-blue-500">
                 Home
                 <span
                     class="underline-indicator absolute -bottom-1.5 h-0.5 bg-blue-500 transition-all duration-300 w-0 left-1/2 group-hover:left-0 group-hover:w-full"></span>
             </a>
-            <a data-target="about" href="{{ route('home') }}"
+            <a data-target="about" href="{{ route('home') }}#about"
                 class="navbar-btn relative group cursor-pointer transition-colors duration-300 text-gray-700 hover:text-blue-500">
                 About
                 <span
                     class="underline-indicator absolute -bottom-1.5 h-0.5 bg-blue-500 transition-all duration-300 w-0 left-1/2 group-hover:left-0 group-hover:w-full"></span>
             </a>
-            <span data-target="resume"
+            <a data-target="resume" href="{{ route('home') }}#resume"
                 class="navbar-btn relative group cursor-pointer transition-colors duration-300 text-gray-700 hover:text-blue-500">
                 Resume
                 <span
                     class="underline-indicator absolute -bottom-1.5 h-0.5 bg-blue-500 transition-all duration-300 w-0 left-1/2 group-hover:left-0 group-hover:w-full"></span>
-            </span>
-            <span data-target="services"
+            </a>
+            <a data-target="services" href="{{ route('home') }}#services"
                 class="navbar-btn relative group cursor-pointer transition-colors duration-300 text-gray-700 hover:text-blue-500">
                 Services
                 <span
                     class="underline-indicator absolute -bottom-1.5 h-0.5 bg-blue-500 transition-all duration-300 w-0 left-1/2 group-hover:left-0 group-hover:w-full"></span>
-            </span>
-            <span data-target="contact"
+            </a>
+            <a data-target="contact" href="{{ route('home') }}#contact"
                 class="navbar-btn relative group cursor-pointer transition-colors duration-300 text-gray-700 hover:text-blue-500">
                 Contact
                 <span
                     class="underline-indicator absolute -bottom-1.5 h-0.5 bg-blue-500 transition-all duration-300 w-0 left-1/2 group-hover:left-0 group-hover:w-full"></span>
-            </span>
-            <span data-target="projects"
+            </a>
+            <a data-target="projects" href="{{ route('home') }}#projects"
                 class="navbar-btn relative group cursor-pointer transition-colors duration-300 text-gray-700 hover:text-blue-500">
                 Projects
                 <span
                     class="underline-indicator absolute -bottom-1.5 h-0.5 bg-blue-500 transition-all duration-300 w-0 left-1/2 group-hover:left-0 group-hover:w-full"></span>
-            </span>
+            </a>
 
             <a href="{{ route('blog') }}"
                 class="relative group cursor-pointer duration-300 text-gray-700 {{ Route::currentRouteName() === 'blog' ? 'text-blue-500 font-bold' : 'hover:text-blue-500 ' }}">
